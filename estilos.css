@@ -1,62 +1,168 @@
-.p1 {
-    background-image: url("https://storage.alboom.ninja/sites/39752/albuns/750799/bar_9433.jpg?t=1606827503");
-    background-size: contain; /* Asegura que la imagen completa se muestre sin deformarse */
-    background-position: center; /* Posiciona la imagen en el centro de la pantalla */
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh; /* Cubre el 100% de la altura de la ventana visible */
+body, html {
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+header {
+    background-image: url("https://storage.alboom.ninja/sites/39752/albuns/750799/bar_9395.jpg?t=1606827501");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* Estilo para el texto */
-.texto-invitacion {
     text-align: center;
     color: white;
-    font-family: 'Arial', sans-serif;
-    font-size: 4vw; /* Tamaño del texto adaptativo */
 }
 
-/* Estilo del footer */
+header h1 {
+    font-size: 5vw;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+header .texto-invitacion h2 {
+    font-size: 3vw;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+p, li {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Estilos para botones */
+button {
+    background-color: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 1rem auto;
+}
+
+button:hover {
+    background-color: #d81b60;
+}
+
+/* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input {
+    padding: 10px;
+    margin: ;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: auto;
+}
+
+/* Estilos para la galería */
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.galeria img, .galeria video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
 footer {
     text-align: center;
-    padding: 1em;
+    padding: 1rem;
     background-color: #333;
     color: white;
-    font-size: 1.2vw;
+    font-size: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Media queries para dispositivos móviles */
+/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
-    .p1 {
-        background-size: cover; /* Cubre toda la pantalla pero puede recortar un poco */
-        background-position: 75% center; /* Mueve el punto focal hacia la izquierda mostrando más de los segundos 3/4 de la imagen */
+    header {
+        background-position: 75% center;
+        background-size: cover;
     }
 
-    .texto-invitacion {
-        font-size: 6vw;
-    }
-
-    footer {
-        font-size: 3vw;
-    }
-}
-
-@media (max-width: 480px) {
-    .p1 {
-        background-size: cover; /* Cubre la pantalla pero sigue permitiendo mostrar más de los 3/4 derechos */
-        background-position: 75% center; /* Ajusta la posición a un 75% desde la derecha */
-        height: 100vh; /* Mantén el 100% de la altura de la pantalla */
-    }
-
-    .texto-invitacion {
+    header h1 {
         font-size: 8vw;
     }
 
-    footer {
-        font-size: 4vw;
+    header .texto-invitacion h2 {
+        font-size: 6vw;
     }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    p, li {
+        font-size: 1rem;
+    }
+}
+
+/* Estilos para tamaños más pequeños */
+@media (max-width: 480px) {
+    header {
+        height: 80vh;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p, li {
+        font-size: 0.9rem;
+    }
+
+    .galeria {
+        flex-direction: column;
+    }
+}
+#countdown {
+    font-size: 2rem;
+    color: #fff;
+    margin-top: 20px;
 }

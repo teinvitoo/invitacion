@@ -7,19 +7,151 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <header>
-        <h1>Invitación a Mis XV</h1>
-    </header>
-
-    <main class="p1">
+    <header class="p1">
         <section class="texto-invitacion">
             <h1>Mis XV</h1>
             <h2>Zoe Uribe</h2>
+            <div id="countdown"></div> 
+        </section>
+        <!-- Cuenta regresiva -->
+    </header>
+    <main>
+        <!-- Confirmación de asistencia -->
+        <section id="confirmacion">
+            <h2>Confirmación de Asistencia</h2>
+            <p>Confirma tu asistencia por WhatsApp o llena el formulario:</p>
+            <button onclick="window.location.href='https://wa.me/1234567890';">Confirmar por WhatsApp</button>
+            <form action="#" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Confirmar</button>
+            </form>
+        </section>
+
+        <!-- Botón para agregar evento al calendario -->
+        <section id="calendario">
+            <h2>Agrega a tu Calendario</h2>
+            <button onclick="addEventToCalendar()">Agregar al Calendario</button>
+        </section>
+
+        <!-- Galería de fotos y video -->
+        <section id="galeria">
+            <h2>Galería de Fotos y Videos</h2>
+            <div class="galeria">
+                <img src="foto1.jpg" alt="Foto 1">
+                <img src="foto2.jpg" alt="Foto 2">
+                <video src="video.mp4" controls></video>
+            </div>
+        </section>
+
+        <!-- Música de fondo -->
+        <section id="musica">
+            <h2>Música de Fondo</h2>
+            <audio controls autoplay loop>
+                <source src="musica.mp3" type="audio/mpeg">
+                Tu navegador no soporta audio.
+            </audio>
+        </section>
+
+        <!-- Botón GPS para ubicación -->
+        <section id="ubicacion">
+            <h2>Ubicación del Evento</h2>
+            <button onclick="window.location.href='https://maps.google.com/?q=location';">Ver en GPS</button>
+        </section>
+
+        <!-- Mesas de regalos -->
+        <section id="regalos">
+            <h2>Mesas de Regalos</h2>
+            <p>Accede a nuestras mesas de regalos en las siguientes tiendas:</p>
+            <ul>
+                <li><a href="https://tienda1.com">Tienda 1</a></li>
+                <li><a href="https://tienda2.com">Tienda 2</a></li>
+            </ul>
+        </section>
+
+        <!-- Código de vestimenta -->
+        <section id="codigo-vestimenta">
+            <h2>Código de Vestimenta</h2>
+            <p>Por favor, asiste con vestimenta formal.</p>
+        </section>
+
+        <!-- Nombramientos -->
+        <section id="nombramientos">
+            <h2>Nombramientos</h2>
+            <ul>
+                <li>Testigos: Nombre 1, Nombre 2</li>
+                <li>Padrinos: Nombre 3, Nombre 4</li>
+                <li>Familia: Nombre 5, Nombre 6</li>
+            </ul>
+        </section>
+
+        <!-- Itinerario -->
+        <section id="itinerario">
+            <h2>Itinerario del Evento</h2>
+            <ul>
+                <li>17:00 - Ceremonia</li>
+                <li>18:30 - Recepción</li>
+                <li>20:00 - Cena</li>
+                <li>22:00 - Baile</li>
+            </ul>
+        </section>
+
+        <!-- Platillos y menús -->
+        <section id="menu">
+            <h2>Platillos y Menús</h2>
+            <p>Menú Principal: Platillo 1, Platillo 2</p>
+            <p>Menú Vegetariano: Platillo 3, Platillo 4</p>
+        </section>
+
+        <!-- Medidas de higiene y seguridad -->
+        <section id="higiene">
+            <h2>Medidas de Higiene y Seguridad</h2>
+            <p>Por favor, sigue las medidas de seguridad establecidas. Habrá estaciones de desinfección y se requiere el uso de mascarillas.</p>
+        </section>
+
+        <!-- Opciones de hospedaje -->
+        <section id="hospedaje">
+            <h2>Opciones de Hospedaje</h2>
+            <p>Recomendamos los siguientes hoteles cercanos:</p>
+            <ul>
+                <li>Hotel 1: <a href="https://hotel1.com">Visitar sitio</a></li>
+                <li>Hotel 2: <a href="https://hotel2.com">Visitar sitio</a></li>
+            </ul>
         </section>
     </main>
 
     <footer>
         <p>© 2024 Evento de Zoe Uribe</p>
     </footer>
+
+    <script>
+        // Función para agregar el evento al calendario
+        function addEventToCalendar() {
+            alert("Evento agregado a tu calendario.");
+            // Aquí puedes integrar un calendario como Google Calendar o Apple Calendar.
+        }
+
+        // Función para la cuenta regresiva
+        const countdownDate = new Date("3025-08-19T00:00:00").getTime();
+
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "¡El evento ha comenzado!";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
