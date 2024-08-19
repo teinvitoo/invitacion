@@ -1,11 +1,12 @@
 .p1 {
-    background-image: url("https://i0.wp.com/roberangelgarcia.com/wp-content/uploads/2021/09/Book-Zoe-Uribelarrearobert-lanvers-garcia-fotografo-de-argentina_1-scaled.jpg?resize=768%2C513&ssl=1");
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center;
+    background-image: url("https://storage.alboom.ninja/sites/39752/albuns/750799/bar_9433.jpg?t=1606827503");
+    background-size: contain; /* Asegura que la imagen completa se muestre sin deformarse */
+    background-position: center; /* Posiciona la imagen en el centro de la pantalla */
     background-repeat: no-repeat;
     width: 100%;
-    height: 100vh;
-    margin: 0 auto;
+    height: 100vh; /* Cubre el 100% de la altura de la ventana visible */
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,11 +32,12 @@ footer {
 /* Media queries para dispositivos móviles */
 @media (max-width: 768px) {
     .p1 {
-        background-size: cover; /* Mantiene el fondo cubriendo todo en móviles */
+        background-size: cover; /* Cubre toda la pantalla pero puede recortar un poco */
+        background-position: 75% center; /* Mueve el punto focal hacia la izquierda mostrando más de los segundos 3/4 de la imagen */
     }
 
     .texto-invitacion {
-        font-size: 6vw; /* Ajusta el tamaño del texto en dispositivos más pequeños */
+        font-size: 6vw;
     }
 
     footer {
@@ -45,11 +47,13 @@ footer {
 
 @media (max-width: 480px) {
     .p1 {
-        height: 100vh; /* Mantiene el 100% de la altura de la pantalla */
+        background-size: cover; /* Cubre la pantalla pero sigue permitiendo mostrar más de los 3/4 derechos */
+        background-position: 75% center; /* Ajusta la posición a un 75% desde la derecha */
+        height: 100vh; /* Mantén el 100% de la altura de la pantalla */
     }
 
     .texto-invitacion {
-        font-size: 8vw; /* Texto más grande en pantallas pequeñas */
+        font-size: 8vw;
     }
 
     footer {
