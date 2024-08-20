@@ -7,14 +7,27 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+    <!-- Modal para elegir si reproducir música o no -->
+    <div id="musicModal" class="modal">
+        <div class="modal-content">
+            <h2>¿Quieres entrar con música?</h2>
+            <button id="playMusic">Sí, quiero música</button>
+            <button id="noMusic">No, sin música</button>
+        </div>
+    </div>
+
+    <!-- Iframe de YouTube oculto para solo reproducir sonido -->
+    <iframe id="youtubeMusic" width="0" height="0" frameborder="0" allow="autoplay"></iframe>
+
+    <!-- Contenido principal de la página -->
     <header class="p1">
         <section class="texto-invitacion">
             <h1>Mis XV</h1>
             <h2>Zoe Uribe</h2>
             <div id="countdown"></div> 
         </section>
-        <!-- Cuenta regresiva -->
     </header>
+
     <main>
         <!-- Confirmación de asistencia -->
         <section id="confirmacion">
@@ -36,7 +49,7 @@
             <button onclick="addEventToCalendar()">Agregar al Calendario</button>
         </section>
 
-        <!-- Galería de fotos y video -->
+        <!-- Galería de fotos y videos -->
         <section id="galeria">
             <h2>Galería de Fotos y Videos</h2>
             <div class="galeria">
@@ -127,6 +140,22 @@
     </footer>
 
     <script>
+        // Mostrar el modal al cargar la página
+        window.onload = function() {
+            document.getElementById('musicModal').style.display = 'block';
+        };
+
+        // Función para reproducir la música
+        document.getElementById('playMusic').onclick = function() {
+            document.getElementById('youtubeMusic').src = "cancion.mp4";
+            document.getElementById('musicModal').style.display = 'none';
+        };
+
+        // Función para entrar sin música
+        document.getElementById('noMusic').onclick = function() {
+            document.getElementById('musicModal').style.display = 'none';
+        };
+
         // Función para agregar el evento al calendario
         function addEventToCalendar() {
             alert("Evento agregado a tu calendario.");
@@ -134,7 +163,7 @@
         }
 
         // Función para la cuenta regresiva
-        const countdownDate = new Date("3025-08-19T00:00:00").getTime();
+        const countdownDate = new Date("2024-09-19T00:00:00").getTime();
 
         const countdownFunction = setInterval(function() {
             const now = new Date().getTime();
