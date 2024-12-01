@@ -40,13 +40,6 @@
             position: relative;
         }
 
-        .header .time {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 14px;
-        }
-
         .content {
             padding: 20px;
         }
@@ -67,17 +60,16 @@
             height: 100%;
             object-fit: cover;
             position: absolute;
-            transition: transform 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .photo img.hidden {
+            opacity: 0;
         }
 
         .info {
             margin-top: 20px;
             line-height: 1.6;
-        }
-
-        .info p {
-            margin-bottom: 10px;
-            font-size: 14px;
         }
 
         .footer {
@@ -109,8 +101,8 @@
         </div>
         <div class="content">
             <div class="photo" id="photoContainer">
-                <img src="foto1.png" alt="Foto 1">
-                <img src="foto2.png" alt="Foto 2">
+                <img src="foto1.png" alt="Foto 1" class="visible">
+                <img src="foto2.png" alt="Foto 2" class="hidden">
             </div>
             <div class="info">
                 <p><strong>Apellido:</strong> CUNEO</p>
@@ -132,11 +124,17 @@
         const photoContainer = document.getElementById('photoContainer');
         const images = photoContainer.querySelectorAll('img');
 
+        let currentIndex = 0;
+
         photoContainer.addEventListener('click', () => {
-            images.forEach((img, index) => {
-                img.style.transform = `translateX(${index === 0 ? '100%' : '0'})`;
-            });
-            photoContainer.appendChild(images[0]);
+            // Oculta la imagen actual
+            images[currentIndex].classList.add('hidden');
+            images[currentIndex].classList.remove('visible');
+
+            // Muestra la siguiente imagen
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.remove('hidden');
+            images[currentIndex].classList.add('visible');
         });
     </script>
 </body>
