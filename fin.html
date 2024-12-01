@@ -1,6 +1,121 @@
 
-<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>DNI Digital</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; } .container { width: 100%; max-width: 600px; margin: 20px auto; background-color: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden; } .header { background-color: #007bff; color: #fff; padding: 15px; text-align: center; font-size: 18px; } .dni-section { display: flex; flex-direction: column; align-items: center; padding: 20px; } .photo-container { width: 90%; height: 200px; background-color: #000; display: flex; align-items: center; justify-content: center; position: relative; } .photo-container img { max-width: 100%; max-height: 100%; display: none; } .photo-container img.active { display: block; } .info { width: 90%; margin-top: 20px; font-size: 14px; } .info p { margin-bottom: 10px; } .info span { font-weight: bold; } .footer { background-color: #007bff; color: #fff; text-align: center; padding: 10px; font-size: 14px; } .button { display: flex; justify-content: space-around; margin-top: 20px; } button { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; } button:hover { background-color: #0056b3; } </style> </head> <body> <div class="container"> <div class="header"> DNI Digital </div> <div class="dni-section"> <div class="photo-container"> <!-- Imágenes para alternar --> <img src="foto1.png" alt="Foto 1" class="active" id="photo1"> <img src="foto2.png" alt="Foto 2" id="photo2"> </div> <div class="info"> <p><span>Nombre:</span> Santiago Cuneo</p> <p><span>Fecha de nacimiento:</span> 24 JUN / JUN 2006</p> <p><span>Documento:</span> 46.855.147</p> <p><span>Fecha de emisión:</span> 17 AGO / AUG 2023</p> <p><span>Fecha de vencimiento:</span> 17 AGO / AUG 2038</p> </div> </div> <div class="button"> <button onclick="togglePhotos()">Cambiar foto</button> </div> <div class="footer"> Última actualización: 17/08/2023 14:14 hs </div> </div> <script> let photo1 = document.getElementById("photo1"); let photo2 = document.getElementById("photo2"); function togglePhotos() { // Alterna entre las imágenes if (photo1.classList.contains("active")) { photo1.classList.remove("active"); photo2.classList.add("active"); } else { photo2.classList.remove("active"); photo1.classList.add("active"); } } </script> 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNI Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 375px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            position: relative;
+        }
+
+        .header .time {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 200px;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .photo img:nth-child(2) {
+            transform: translateX(100%);
+        }
+
+        .photo:hover img:nth-child(1) {
+            transform: translateX(-100%);
+        }
+
+        .photo:hover img:nth-child(2) {
+            transform: translateX(0);
+        }
+
+        .info {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .info p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer button {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .footer button:hover {
+            background-color: #303f9f;
+        }
+    </style>
+</head>
+<body>
     <div class="container">
         <div class="header">
             DNI Digital
@@ -20,7 +135,7 @@
                 <p><strong>Fecha de nacimiento:</strong> 24 JUN 2006</p>
                 <p><strong>Fecha de emisión:</strong> 17 AGO 2023</p>
                 <p><strong>Fecha de vencimiento:</strong> 17 AGO 2038</p>
-                <p><strong>Documento:</strong> 46.855.147</p>
+                <p><strong>Documento:</strong> 48.855.147</p>
             </div>
         </div>
         <div class="footer">
